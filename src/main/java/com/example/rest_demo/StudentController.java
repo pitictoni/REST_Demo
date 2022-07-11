@@ -1,10 +1,7 @@
 package com.example.rest_demo;
 
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -21,5 +18,25 @@ public class StudentController {
     @GetMapping("/all")
     ArrayList<Student> getAllStudents(){
         return studentService.getAllStudents();
+    }
+
+    @PostMapping("/add")
+    public void add(@RequestBody Student student){
+        studentService.add(student);
+    }
+
+    @PostMapping("/addMockData")
+    public void addMockData(){
+        studentService.addMockData();
+    }
+
+    @GetMapping("/{id}")
+    public Student getStudent(@PathVariable int id){
+        return studentService.getStudentById(id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteStudent(@PathVariable int id){
+        studentService.deleteStudentById(id);
     }
 }

@@ -16,4 +16,24 @@ public class StudentService {
     public ArrayList<Student> getAllStudents(){
         return (ArrayList<Student>) studentRepository.findAll();
     }
+
+    public void add(Student student) {
+        studentRepository.save(student);
+    }
+
+    public void addMockData() {
+        studentRepository.save(new Student("Toni"));
+        studentRepository.save(new Student("Ana"));
+        studentRepository.save(new Student("Constatinescu"));
+        studentRepository.save(new Student("Dorel"));
+
+    }
+
+    public Student getStudentById(int id) {
+        return studentRepository.findById(id).get();
+    }
+
+    public void deleteStudentById(int id) {
+        studentRepository.deleteById(id);
+    }
 }
