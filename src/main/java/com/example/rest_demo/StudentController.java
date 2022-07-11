@@ -21,8 +21,8 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public void add(@RequestBody Student student){
-        studentService.add(student);
+    public Student add(@RequestBody Student student){
+       return studentService.add(student);
     }
 
     @PostMapping("/addMockData")
@@ -38,5 +38,10 @@ public class StudentController {
     @DeleteMapping("/delete/{id}")
     public void deleteStudent(@PathVariable int id){
         studentService.deleteStudentById(id);
+    }
+
+    @PutMapping("/update")
+    public Student updateStudent(@RequestBody Student student){
+        return studentService.update(student);
     }
 }

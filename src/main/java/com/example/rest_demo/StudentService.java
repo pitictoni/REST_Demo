@@ -17,8 +17,8 @@ public class StudentService {
         return (ArrayList<Student>) studentRepository.findAll();
     }
 
-    public void add(Student student) {
-        studentRepository.save(student);
+    public Student add(Student student) {
+        return studentRepository.save(student);
     }
 
     public void addMockData() {
@@ -36,4 +36,11 @@ public class StudentService {
     public void deleteStudentById(int id) {
         studentRepository.deleteById(id);
     }
+
+    // 2, Ana -> 2,Ancutza
+    public Student update(Student student) {
+       return studentRepository.save(student);
+    }
+
+
 }
